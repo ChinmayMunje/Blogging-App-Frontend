@@ -71,7 +71,7 @@ const PostPage = () => {
 
     return (
         <>
-            <div className='px-6 md:px-20 lg:px-56 mt-10 flex flex-col items-start justify-start text-start'>
+            <div className='px-6 md:px-20 lg:px-56 mt-10 flex flex-col items-start justify-start text-start py-20'>
                 <p className='sm:text-xs bg-gradient-to-r from-blue-900 to-blue-400 text-white p-2 m-2 rounded-[5px] w-fit transform: capitalize'>{(post) && post.category.categoryTitle}</p>
 
                 {/* <div className='text-blue-950'>{(post) && post.category.categoryTitle}</div> */}

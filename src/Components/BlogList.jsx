@@ -25,13 +25,6 @@ const BlogList = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
 
-  // const allCategory = [... new Set(postContent.content.map((currCat) => currCat.category.categoryTitle))];
-  // console.log(allCategory);
-
-  // const [catItems, setCatItems] = useState(allCategory);
-
-
-
 
   const paginationVariants = {
     hidden: {
@@ -103,7 +96,7 @@ const BlogList = () => {
 
   return (
     <>
-      <div className='flex justify-center gap-10 mt-5'>
+      <div className='flex justify-center gap-10'>
         <>
           <ul className='bg-blue-950 text-white px-3 py-1 md:rounded-full cursor-pointer hover:scale-110 hover:border-[1px]
                      border-blue-950 transition-all duration-100 ease-in-out'>

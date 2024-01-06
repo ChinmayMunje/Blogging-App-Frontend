@@ -1,6 +1,5 @@
 
 // export const BASE_URL = "http://localhost:9090/"
-
 export const SIGNUP_API = "https://backend-for-blogging-app-production.up.railway.app/api/v1/auth/registerUser"
 
 export const LOGIN_API = "https://backend-for-blogging-app-production.up.railway.app/api/v1/auth/login"

@@ -3,9 +3,9 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 
 const Search = () => {
-  
 
-  
+
+
     // const tags = [
     //     {
     //         id: 1,
@@ -28,20 +28,22 @@ const Search = () => {
     //         name: "Android Development"
     //     }
     // ]
-    const filterPost=(categoryItem)=>{
-        const updateItem = selectedCategory.filter((currentCategory)=>{
+    const filterPost = (categoryItem) => {
+        const updateItem = selectedCategory.filter((currentCategory) => {
             return currentCategory === categoryItem;
         });
         setSelectedCategory(updateItem);
 
     }
     return (
-        <div className='flex justify-center mt-8 flex-col px-[70] md:px-[150px]'>
-            <div className='bg-white shadow-lg p-3 rounded-lg mt-[-20px] mx-[25%] flex items-center'>
-                <AiOutlineSearch className='text-[20px] text-gray-400' />
-                <input type="text" placeholder='Search' className='outline-none ml-2' />
+        <div className='py-20'>
+            <div className='flex justify-center mt-8 flex-col px-[70] md:px-[150px]'>
+                <div className='bg-white shadow-lg p-3 rounded-lg mt-[-20px] mx-[25%] flex items-center'>
+                    <AiOutlineSearch className='text-[20px] text-gray-400' />
+                    <input type="text" placeholder='Search' className='outline-none ml-2' />
+                </div>
+
             </div>
-            
         </div>
     )
 }

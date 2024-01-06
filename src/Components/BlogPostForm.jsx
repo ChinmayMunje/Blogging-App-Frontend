@@ -107,6 +107,7 @@ const BlogPostForm = () => {
 
 
   return (
+    <div className='py-20'>
     <div className="w-full h-full p-4 bg-white rounded-md shadow-md">
       <h2 className="text-2xl font-semibold mb-4 text-start">Create a Post</h2>
       <form onSubmit={handleSubmit}>
@@ -185,7 +186,9 @@ const BlogPostForm = () => {
           Reset Content
         </button>
       </form>
-    </div>)
+    </div>
+    </div>
+    )
 }
 
 export default BlogPostForm

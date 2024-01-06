@@ -9,8 +9,9 @@ import { FaFacebookF } from "react-icons/fa";
 const Contact = () => {
   return (
     <>
+    <div className='py-20 px-4'>
       <div className='flex flex-col items-start justify-start'>
-        <h1 className='text-2xl font-bold text-blue-950'>Get In Touch</h1>
+        <h1 className='text-2xl font-bold text-blue-950 underline'>Get In Touch</h1>
         <p>For more details please Contact us.</p>
       </div>
 
@@ -60,6 +61,7 @@ const Contact = () => {
 
           </div>
         </div>
+      </div>
       </div>
 
 

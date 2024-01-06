@@ -54,7 +54,7 @@ const Modal = ({ open, onClose, children }) => {
         //         </div>
         //     {/* </div> */}
         // </div>
-        <div className='fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center' id="wrapper" onClick={handleModal}>
+        <div className='fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center top-0 left-0 w-full h-full' id="wrapper" onClick={handleModal}>
             <div className='w-[600px] flex flex-col'>
             <div className='text-black text-xl place-self-end cursor-pointer' onClick={onClose}>X</div>
                 <div className='bg-white px-10 py-10 rounded-2xl border-2 border-gray-100 '>
