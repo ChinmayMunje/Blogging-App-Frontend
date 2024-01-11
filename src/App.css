@@ -47,3 +47,7 @@
 .active {
   @apply text-blue-950 underline underline-offset-4
 }
+
+.active_button {
+  color: goldenrod;
+}

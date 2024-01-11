@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import BlogItems from './BlogItems';
 import { useEffect } from 'react';
-import { GET_ALL_POST_API, GET_ALL_CATEGORY_API } from '../services/api';
+import { GET_ALL_POST_API } from '../services/api';
 import ReactPaginate from 'react-paginate';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
+import CategorySelection from './CategorySelection';
 
 const BlogList = () => {
 
@@ -21,8 +22,8 @@ const BlogList = () => {
   );
 
   const [currentPage, setCurrentPage] = useState(0);
-  const [selectedCategory, setSelectedCategory] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [activePage, setActivePage] = useState(null);
 
 
 
@@ -46,24 +47,10 @@ const BlogList = () => {
   useEffect(() => {
     console.log("Current Page" + currentPage);
     changePage(currentPage)
-    fetchCategoryData();
 
-  }, [currentPage])
+  }, [currentPage,selectedCategory])
 
-  const fetchCategoryData = async () => {
-    try {
-      const response = await fetch(GET_ALL_CATEGORY_API);
-
-      const result = await response.json();
-      setSelectedCategory(result);
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-
-
+  
   const changePage = (pageNumber = 0, pageSize = 9) => {
     if (pageNumber > postContent.pageNumber && postContent.lastPage) {
       return
@@ -72,6 +59,10 @@ const BlogList = () => {
       return
     }
     const fetchData = async (pageNumber, pageSize) => {
+      if(selectedCategory){
+        let url = GET_ALL_POST_API
+        url += `&category=${selectedCategory}`
+      }
       try {
         const response = await fetch(GET_ALL_POST_API + `?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=addedDate&sortDir=desc`)
 
@@ -85,52 +76,25 @@ const BlogList = () => {
     fetchData(pageNumber, pageSize);
   }
 
-  const filterPost = (cat) => {
-    // console.log("WHAT IS THIS :"+cat);
-    const updatedPost = postContent.content.filter((newVal) => !cat || newVal.category.categoryTitle === cat);
-    console.log("WHAT IS THIS :"+updatedPost);
-    setPostContent({
-      content: [...updatedPost]
-    });
+  const handleCategoryChange=(category)=>{
+    setSelectedCategory(category);
+    setCurrentPage(0);
+    setActivePage(category);
   }
+
+  const filterBlogs = postContent.content.filter((blogs)=> !selectedCategory || blogs.category.categoryTitle === selectedCategory)
 
   return (
     <>
-      <div className='flex justify-center gap-10'>
-        <>
-          <ul className='bg-blue-950 text-white px-3 py-1 md:rounded-full cursor-pointer hover:scale-110 hover:border-[1px]
-                     border-blue-950 transition-all duration-100 ease-in-out'>
-            <li>All</li>
-          </ul>
-          {selectedCategory.map((item, index) => {
-            return (
-              <>
-                <ul key={index} onClick={() => setActiveIndex(index)} className={`${index == activeIndex ? 'bg-blue-950 text-white' : null} px-3 py-1 md:rounded-full cursor-pointer hover:scale-110 hover:border-[1px]
-                     border-blue-950 transition-all duration-100 ease-in-out`}>
-                  <li><button onClick={() => filterPost(item.categoryTitle)}>{item.categoryTitle}</button></li>
-                </ul>
-              </>
-            )
-          })}
-        </>
-
-
-        {/* <button>All</button>
-        {selectedCategory.map((category)=>{
-          return (
-            <button onClick={()=>filterPost(category.categoryTitle)}>{category.categoryTitle}</button>
-          )
-        })} */}
-
-
+      <div className='flex justify-center gap-10 text-white'>
+        <CategorySelection onSelectCategory={handleCategoryChange} selectedCategory={selectedCategory} activePage={activePage}/>
       </div>
 
-      {/* <button onClick={filterPost('Cloud Computing')}>Cloud Computing</button> */}
 
       <h1 className='flex text-2xl text-start'>Blogs Count ({postContent.content && postContent.content.length})</h1>
-      <div className='pt-4 grid grid-cols-3 gap-6'>
 
-        {postContent.content.map((blog) => {
+      <div className='pt-4 grid grid-cols-3 gap-6'>
+        {filterBlogs.map((blog) => {
           return (
             <BlogItems blog={blog} key={blog.id} />
           );
