@@ -54,7 +54,7 @@ const Navbar = () => {
   }
 
   return (
-    <header className='fixed top-0 left-0 right-0 bg-blue-300 h-[100px]'>
+    <header className='fixed z-50 top-0 left-0 right-0 bg-blue-300 h-[100px]'>
       <nav className='px-4 py-4 max-w-7xl mx-auto flex justify-between items-center'>
         <img src="https://osf.digital/library/media/osf/digital/modules/product-summary/bloglink-logo.png" alt="logo" className='w-[180px]' />
        
