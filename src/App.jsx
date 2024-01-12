@@ -21,26 +21,10 @@ function App() {
   return (
     <>
     <Navbar/>
+    <ToastContainer position='bottom-center'/>
     <Outlet/>
     <Footer/>
-    
     </>
-    // <Router>
-    //   <NavBar />
-    //   <ToastContainer position='bottom-center' />
-    //   <Routes>
-    //     <Route path='/' element={<Home />} />
-    //     <Route path='/login' element={<Login />} />
-    //     <Route path='/signup' element={<SignUp />} />
-    //     <Route path='/about' element={<About />} />
-    //     {/* <Route path='/blogs' element={<BlogList/>}/> */}
-    //     <Route path='/posts/:postId' element={<PostPage/>} />
-    //     <Route path='/contact' element={<Contact />} />
-    //     <Route path='/user' element={<PrivateRoute />} />
-    //     <Route path='/dashboard' element={<Dashboard />} />
-    //   </Routes>
-    //   <Footer/>
-    // </Router>
   )
 }
 

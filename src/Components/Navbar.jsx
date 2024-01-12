@@ -53,6 +53,14 @@ const Navbar = () => {
     return fullName;
   }
 
+  const handleLoginSuccess=()=>{
+    setOpenModal(false);
+  }
+
+  const handleSignupSuccess=()=>{
+    setSignupModal(false);
+  }
+
   return (
     <header className='fixed z-50 top-0 left-0 right-0 bg-blue-300 h-[100px]'>
       <nav className='px-4 py-4 max-w-7xl mx-auto flex justify-between items-center'>
@@ -100,11 +108,11 @@ const Navbar = () => {
         </div>
 
         <Modal open={openModal} onClose={() => setOpenModal(false)}>
-          <Login />
+          {openModal && <Login onSuccess={handleLoginSuccess} />}
         </Modal>
 
         <Modal open={signupModal} onClose={() => setSignupModal(false)}>
-          <SignUp />
+          {signupModal && <SignUp onSignupSuccess={handleSignupSuccess}/>}
         </Modal>
 
         {/* MENU OPTION FOR MOBILE*/}

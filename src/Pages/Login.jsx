@@ -5,7 +5,7 @@ import { LOGIN_API } from '../services/api'
 import { doLogin } from '../auth'
 import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({onSuccess}) => {
 
   const navigate = useNavigate();
 
@@ -60,6 +60,7 @@ const Login = () => {
         toast.error("Something went Wrong on Server !!!")
       }
     })
+    onSuccess();
 
   }
 
@@ -84,7 +85,7 @@ const Login = () => {
           <button className='font-medium text-base text-blue-700'>Forgot password</button>
         </div>
         <div className='mt-8 flex flex-col gap-y-4'>
-          <button className='bg-blue-950 text-white text-lg font-bold py-3 rounded-xl active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out'>Sign in</button>
+          <button className='bg-blue-950 text-white text-lg font-bold py-3 rounded-xl active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out' type='submit'>Sign in</button>
 
           <button className='flex items-center justify-center gap-2 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4  rounded-xl text-gray-700 font-semibold text-lg border-2 border-gray-100 '>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

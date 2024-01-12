@@ -7,7 +7,7 @@ import { SIGNUP_API } from '../services/api'
 import { ToastContainer, toast } from 'react-toastify';
 
 
-const SignUp = () => {
+const SignUp = ({onSignupSuccess}) => {
 
     const switchLogin = (event) => {
         setSignupModal(false)
@@ -55,6 +55,7 @@ const SignUp = () => {
                 isError: true
             })
         })
+        onSignupSuccess();
         // console.log(data);
     }
 
