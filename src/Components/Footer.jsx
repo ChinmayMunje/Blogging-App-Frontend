@@ -8,6 +8,7 @@ import { FaFacebookF } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
+    {/* <div className='fixed bottom-0 w-full bg-gray-800 text-white'> */}
       <div className="bg-gray-800 text-white absolute left-0 right-0 p-4 mt-4 w-full">
         <div className='px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-4'>
           <div>
@@ -76,6 +77,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      {/* </div> */}
 
       {/* <div className="bg-blue-900 px-4 py-6 z-10 text-white w-full min-h-[5%] absolute left-0 ">Footer @ Footer.com -2022</div> */}
 

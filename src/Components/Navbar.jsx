@@ -21,10 +21,10 @@ const Navbar = () => {
   const [user, setUser] = useState(undefined);
 
   const navItems = [
-    {path: "/", link: "Home"},
-      {path: "/about", link: "About Us"},
-      {path: "/contact", link: "Contact"},
-      {path: "/dashboard", link: "Create Post"},
+    { path: "/", link: "Home" },
+    { path: "/about", link: "About Us" },
+    { path: "/contact", link: "Contact" },
+    { path: "/dashboard", link: "Create Post" },
   ]
 
   useEffect(() => {
@@ -53,33 +53,20 @@ const Navbar = () => {
     return fullName;
   }
 
-  const handleLoginSuccess=()=>{
+  const handleLoginSuccess = () => {
     setOpenModal(false);
   }
 
-  const handleSignupSuccess=()=>{
+  const handleSignupSuccess = () => {
     setSignupModal(false);
   }
 
   return (
-    <header className='fixed z-50 top-0 left-0 right-0 bg-blue-300 h-[100px]'>
+    <header className='fixed z-50 top-0 left-0 right-0 bg-blue-300'>
       <nav className='px-4 py-4 max-w-7xl mx-auto flex justify-between items-center'>
-        <img src="https://osf.digital/library/media/osf/digital/modules/product-summary/bloglink-logo.png" alt="logo" className='w-[180px]' />
+        <img src="https://osf.digital/library/media/osf/digital/modules/product-summary/bloglink-logo.png" alt="logo" className='w-[140px]' />
+
        
-        {/* <ul className='flex gap-4 text-lg md:gap-14'>
-          <li className='text-blue-950 hover:font-bold cursor-pointer'>
-            <Link to='/'>Home</Link>
-          </li>
-          <li className='text-blue-950 hover:font-bold cursor-pointer'>
-            <Link to='/about'>About Us</Link>
-          </li>
-          <li className='text-blue-950 hover:font-bold cursor-pointer'>
-            <Link to='/contact'>Contact</Link>
-          </li>
-          <li className='text-blue-950 hover:font-bold cursor-pointer'>
-            <Link to='/dashboard'>Create Post</Link>
-          </li>
-        </ul> */}
         <ul className='md:flex gap-12 text-lg hidden font-bold text-blue-900'>
           {navItems.map(({path,link})=>
           <li>
@@ -90,7 +77,7 @@ const Navbar = () => {
           )}
         </ul>
 
-        <div className='lg:flex gap-5 items-center hidden'>
+        <div className='lg:flex gap-5 items-center'>
           {login && (
             <>
               {/* <div onClick={logOut}>Logout</div> */}
